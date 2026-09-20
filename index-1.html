@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOKPO NOVA SERVICE BÉNIN</title>
+<style>
+:root{--blue:#063b91;--green:#0a9d39;--gold:#f5b900;--light:#f5f7fb;--dark:#14213d}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--light);color:var(--dark)}
+header{background:#fff;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px #0001}
+.nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+.logo{font-weight:900;font-size:22px;color:var(--blue)} .logo span{color:var(--green)}
+nav a{margin-left:16px;text-decoration:none;color:#333;font-weight:700;font-size:14px}
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;text-decoration:none;border:0;cursor:pointer;font-weight:700}
+.btn[disabled]{opacity:.6;cursor:wait}
+.hero{background:linear-gradient(135deg,#063b91,#087cba);color:white;padding:58px 18px}
+.hero-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center}
+.hero h1{font-size:42px;margin:0 0 12px}.hero p{font-size:18px;line-height:1.6}
+.hero-card{background:#ffffff18;border:1px solid #fff4;border-radius:18px;padding:22px}
+.search{background:white;padding:18px;border-radius:15px;box-shadow:0 8px 25px #0002;display:flex;gap:10px;flex-wrap:wrap}
+.search input,.search select{flex:1;min-width:180px;padding:13px;border:1px solid #ddd;border-radius:9px}
+section{max-width:1100px;margin:auto;padding:45px 18px}
+.title{text-align:center;margin-bottom:25px}.title h2{font-size:30px;margin:0 0 8px}.title p{color:#667085}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:15px}
+.card{background:white;border-radius:15px;padding:20px;box-shadow:0 4px 16px #0000000d}.icon{font-size:34px}.card h3{margin:10px 0 7px}.card p{color:#667085;font-size:14px;line-height:1.5}
+.listings{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.listing{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 4px 16px #0001}.photo{height:145px;background:linear-gradient(135deg,#cde3ff,#e7f5ea);display:flex;align-items:center;justify-content:center;font-size:55px}.listing .body{padding:17px}.price{font-weight:900;color:var(--green);font-size:18px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.step{text-align:center;background:#fff;padding:20px;border-radius:15px}.num{width:40px;height:40px;border-radius:50%;background:var(--gold);margin:auto;display:grid;place-items:center;font-weight:900}
+.cta{background:#063b91;color:#fff;border-radius:20px;padding:35px;text-align:center}.cta h2{margin-top:0}
+footer{background:#0d1b34;color:#fff;padding:35px 18px}.foot{max-width:1100px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}.foot a{display:block;color:#dbe7ff;text-decoration:none;margin:8px 0}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:20;align-items:center;justify-content:center;padding:20px}.modal-box{background:#fff;border-radius:18px;padding:25px;max-width:520px;width:100%;max-height:92vh;overflow:auto}.modal-box input,.modal-box textarea,.modal-box select{width:100%;padding:12px;margin:7px 0;border:1px solid #ddd;border-radius:8px}
+.modal-box .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;padding:0;margin:0;border:0}
+.hint{font-size:13px;color:#667085;margin:2px 0 8px;line-height:1.5}
+.confirm{display:none;text-align:center}.confirm p{line-height:1.6}
+.confirm .ref{font-weight:900;font-size:20px;color:var(--blue);background:var(--light);border-radius:10px;padding:10px;margin:12px 0}
+.confirm .btn{margin:6px 3px}.btn-wa{background:var(--green)}
+#noResult{display:none;text-align:center;color:#667085;padding:10px 18px}
+.close{float:right;cursor:pointer;font-size:24px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:850px){.hero-inner{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.listings{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr}nav{display:none}}
+@media(max-width:520px){.hero h1{font-size:31px}.grid,.listings,.steps{grid-template-columns:1fr}.nav{padding:12px}.search{display:block}.search>*{width:100%;margin:4px 0}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="nav">
+  <div class="logo">TOKPO <span>NOVA</span></div>
+  <nav>
+   <a href="#accueil">Accueil</a><a href="#services">Services</a><a href="#annonces">Annonces</a><a href="#contact">Contact</a>
+  </nav>
+  <button class="btn" onclick="openModal('commande')">Commander</button>
+ </div>
+</header>
+
+<main id="accueil">
+<section class="hero">
+ <div class="hero-inner">
+  <div>
+   <div style="font-weight:800;color:#ffd54a">SERVICE BÉNIN</div>
+   <h1>Plusieurs services, une seule solution.</h1>
+   <p>TOKPO NOVA SERVICE BÉNIN met en relation les clients, propriétaires, commerçants et prestataires pour faciliter vos démarches, vos achats, vos livraisons et vos besoins immobiliers.</p>
+   <a class="btn" style="background:#f5b900;color:#13203b" href="#services">Découvrir nos services</a>
+  </div>
+  <div class="hero-card">
+   <h3>🔎 Rechercher un service</h3>
+   <div class="search">
+    <input id="searchInput" placeholder="Ex. appartement à louer...">
+    <select id="cat"><option>Tout</option><option>Immobilier</option><option>Administratif</option><option>Livraison</option><option>Commerce</option><option>Numérique</option></select>
+    <button class="btn" onclick="searchSite()">Rechercher</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="services">
+ <div class="title"><h2>Nos services</h2><p>Une plateforme pensée pour les besoins quotidiens.</p></div>
+ <div class="grid">
+  <div class="card" data-cat="Immobilier"><div class="icon">🏠</div><h3>Immobilier</h3><p>Locations, terrains, maisons à vendre et gestion locative.</p><button class="btn" onclick="openModal('annonce','Immobilier')">Publier</button></div>
+  <div class="card" data-cat="Administratif"><div class="icon">📄</div><h3>Administratif</h3><p>Assistance pour vos démarches et documents administratifs.</p><button class="btn" onclick="openModal('commande','Service administratif')">Demander</button></div>
+  <div class="card" data-cat="Livraison"><div class="icon">🛵</div><h3>Livraison</h3><p>Documents, colis, achats et courses selon votre zone.</p><button class="btn" onclick="openModal('livraison','Livraison')">Livrer</button></div>
+  <div class="card" data-cat="Commerce"><div class="icon">🛒</div><h3>Commerce</h3><p>Produits et petites annonces proposés par les vendeurs.</p><button class="btn" onclick="openModal('annonce','Commerce')">Vendre</button></div>
+  <div class="card" data-cat="Chansons"><div class="icon">🎵</div><h3>Chansons personnalisées</h3><p>Anniversaire, amour, mariage, hommage, naissance et autres événements.</p><button class="btn" onclick="openModal('musique','Chanson personnalisée')">Commander</button></div>
+  <div class="card" data-cat="Numérique"><div class="icon">📱</div><h3>Numérique</h3><p>Assistance numérique, impressions, transferts et services en ligne.</p><button class="btn" onclick="openModal('commande','Service numérique')">Demander</button></div>
+ </div>
+ <p id="noResult">Aucun service ne correspond à votre recherche. Décrivez votre besoin via « Commander ».</p>
+</section>
+
+<section id="annonces">
+ <div class="title"><h2>Annonces récentes</h2><p>Exemple de contenu du futur catalogue.</p></div>
+ <div class="listings">
+  <div class="listing" data-cat="Immobilier"><div class="photo">🏠</div><div class="body"><h3>Appartement 2 chambres + salon</h3><p>📍 Porto-Novo — Kandévié</p><div class="price">60 000 FCFA / mois</div><br><button class="btn" onclick="contactWhatsApp('Appartement 2 chambres + salon à Kandévié')">Contacter</button></div></div>
+  <div class="listing" data-cat="Immobilier"><div class="photo">🏡</div><div class="body"><h3>Parcelle à vendre</h3><p>📍 Ouémé — zone à préciser</p><div class="price">Prix sur demande</div><br><button class="btn" onclick="contactWhatsApp('Parcelle à vendre')">Contacter</button></div></div>
+  <div class="listing" data-cat="Commerce"><div class="photo">🛍️</div><div class="body"><h3>Produit / commerce</h3><p>📍 Porto-Novo</p><div class="price">À partir de 5 000 FCFA</div><br><button class="btn" onclick="contactWhatsApp('Produit du catalogue')">Contacter</button></div></div>
+ </div>
+</section>
+
+<section id="musique">
+ <div class="title"><h2>🎵 Chansons personnalisées</h2><p>Transformez votre histoire en chanson originale pour un moment inoubliable. De 5 000 à 20 000 FCFA selon votre projet.</p></div>
+ <div class="listings">
+  <div class="card"><div class="icon">❤️</div><h3>Chanson d'amour</h3><p>Une chanson sur votre histoire, votre rencontre et vos sentiments.</p><button class="btn" onclick="openModal('musique','Chanson personnalisée')">Commander</button></div>
+  <div class="card"><div class="icon">🎂</div><h3>Anniversaire</h3><p>Une chanson personnalisée avec le prénom, l'âge et les souvenirs.</p><button class="btn" onclick="openModal('musique','Chanson personnalisée')">Commander</button></div>
+  <div class="card"><div class="icon">💍</div><h3>Mariage & hommage</h3><p>Un morceau sur mesure pour mariage, hommage, naissance ou cérémonie.</p><button class="btn" onclick="openModal('musique','Chanson personnalisée')">Commander</button></div>
+ </div>
+</section>
+
+<section>
+ <div class="title"><h2>Comment ça marche ?</h2></div>
+ <div class="steps">
+  <div class="step"><div class="num">1</div><h3>Choisissez</h3><p>Choisissez un service ou une annonce.</p></div>
+  <div class="step"><div class="num">2</div><h3>Commandez</h3><p>Envoyez votre demande en ligne ou par WhatsApp.</p></div>
+  <div class="step"><div class="num">3</div><h3>Confirmation</h3><p>Nous confirmons le prix, les modalités et le dépôt à verser.</p></div>
+  <div class="step"><div class="num">4</div><h3>Recevez</h3><p>Dès la réception du dépôt, votre commande est finalisée dans le délai annoncé.</p></div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="cta"><h2>Vous avez un besoin ?</h2><p>Contactez TOKPO NOVA SERVICE BÉNIN pour obtenir une solution adaptée.</p><button class="btn" style="background:#f5b900;color:#13203b" onclick="contactWhatsApp('Bonjour TOKPO NOVA SERVICE BÉNIN, je souhaite obtenir des informations.')">💬 WhatsApp</button></div>
+</section>
+</main>
+
+<footer>
+ <div class="foot">
+  <div><h2>TOKPO <span style="color:#42c96a">NOVA</span></h2><p>Plusieurs services, une seule solution.</p><p>🇧🇯 Bénin</p></div>
+  <div><h3>Services</h3><a href="#services">Immobilier</a><a href="#services">Administratif</a><a href="#services">Livraison</a><a href="#services">Commerce</a></div>
+  <div><h3>Contact</h3><p>WhatsApp : <span id="footWa">votre numéro</span></p><p>Email : <span id="footMail">votre email</span></p><p>Porto-Novo / Bénin</p></div>
+ </div>
+</footer>
+
+<div class="modal" id="modal">
+ <div class="modal-box">
+  <span class="close" onclick="closeModal()">×</span>
+  <h2 id="modalTitle">Votre demande</h2>
+
+  <form id="orderForm" onsubmit="submitForm(event)">
+   <input name="nom" required maxlength="80" placeholder="Nom et prénom" autocomplete="name">
+   <input name="tel" required maxlength="30" placeholder="Téléphone / WhatsApp" autocomplete="tel" inputmode="tel">
+   <select name="service" id="serviceSelect" required onchange="onServiceChange()">
+    <option value="">Choisir un service</option><option>Immobilier</option><option>Service administratif</option><option>Livraison</option><option>Commerce</option><option>Chanson personnalisée</option><option>Service numérique</option>
+   </select>
+   <p class="hint" id="serviceHint"></p>
+   <div id="musicFields" style="display:none">
+    <input name="prenoms" maxlength="120" placeholder="Prénom(s) à mettre dans la chanson">
+    <select name="typeChanson"><option value="">Type de chanson</option><option>Amour</option><option>Anniversaire</option><option>Mariage</option><option>Hommage</option><option>Naissance</option><option>Autre événement</option></select>
+    <textarea name="histoire" maxlength="1200" rows="5" placeholder="Racontez l'histoire, les souvenirs, les qualités de la personne et les messages à intégrer"></textarea>
+    <select name="style"><option value="">Style musical souhaité</option><option>Afrobeat</option><option>Afropop</option><option>Gospel</option><option>Rumba</option><option>Slow / Love</option><option>À proposer</option></select>
+   </div>
+   <textarea name="besoin" maxlength="1200" rows="4" placeholder="Décrivez votre besoin"></textarea>
+   <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+   <button class="btn" type="submit" id="submitBtn">Envoyer la demande</button>
+  </form>
+
+  <div class="confirm" id="confirmBox" aria-live="polite">
+   <div style="font-size:44px" id="confirmIcon">✅</div>
+   <h3 id="confirmTitle"></h3>
+   <div class="ref" id="confirmRef"></div>
+   <p id="confirmText"></p>
+   <button class="btn btn-wa" id="confirmWa" type="button">💬 Continuer sur WhatsApp</button>
+   <button class="btn" type="button" onclick="closeModal()">Fermer</button>
+  </div>
+ </div>
+</div>
+
+<script>
+/* ============ À MODIFIER ============ */
+const CONFIG={
+ WHATSAPP:'2290141445906',              // Numéro WhatsApp au format international, sans + ni espaces
+ WHATSAPP_AFFICHE:'+229 01 41 44 59 06', // Numéro affiché dans le pied de page
+ EMAIL:'aziztokpo@gmail.com',           // Email affiché dans le pied de page
+ SCRIPT_URL:''                          // Laisser vide = version simple : la demande arrive sur votre WhatsApp. (Adresse du tableau de bord automatique : voir GUIDE.md)
+};
+/* Délai de finalisation annoncé au client, à compter de la réception du dépôt (en heures).
+   Ces valeurs doivent être identiques à celles de la feuille « Réglages » du tableau de bord. */
+const SERVICES={
+ 'Immobilier':{delai:48,prix:'Demande de location de chambre : à partir de 3 000 FCFA. Autres demandes : prix confirmé après votre message.'},
+ 'Service administratif':{delai:48,prix:'Prix confirmé après votre demande.'},
+ 'Livraison':{delai:24,prix:'À partir de 1 000 FCFA selon la distance et le colis.'},
+ 'Commerce':{delai:48,prix:'Prix confirmé après votre demande.'},
+ 'Chanson personnalisée':{delai:72,prix:'De 5 000 à 20 000 FCFA selon votre projet.'},
+ 'Service numérique':{delai:48,prix:'Prix confirmé après votre demande.'}
+};
+/* ================================== */
+
+function delaiTexte(h){return h%24===0&&h>=48?(h/24)+' jours ('+h+' h)':h+' h'}
+function openModal(type,service){
+ document.getElementById('modal').style.display='flex';
+ const titles={commande:'Commander un service',annonce:'Publier une annonce',livraison:'Demander une livraison',musique:'Commander une chanson personnalisée'};
+ document.getElementById('modalTitle').textContent=titles[type]||'Votre demande';
+ document.getElementById('serviceSelect').value=service||'';
+ onServiceChange();
+}
+function closeModal(){
+ document.getElementById('modal').style.display='none';
+ document.getElementById('confirmBox').style.display='none';
+ document.getElementById('orderForm').style.display='block';
+}
+function toggleMusicFields(){document.getElementById('musicFields').style.display=document.getElementById('serviceSelect').value==='Chanson personnalisée'?'block':'none'}
+function onServiceChange(){
+ toggleMusicFields();
+ const s=SERVICES[document.getElementById('serviceSelect').value];
+ document.getElementById('serviceHint').textContent=s?(s.prix+' Délai de finalisation : '+delaiTexte(s.delai)+' après réception du dépôt.'):'';
+}
+function makeRef(){
+ const d=new Date(),p=n=>String(n).padStart(2,'0');
+ const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let r='';
+ for(let i=0;i<4;i++)r+=chars[Math.floor(Math.random()*chars.length)];
+ return 'TN-'+String(d.getFullYear()).slice(2)+p(d.getMonth()+1)+p(d.getDate())+'-'+r;
+}
+function showConfirmation(o){
+ document.getElementById('orderForm').style.display='none';
+ document.getElementById('confirmBox').style.display='block';
+ const d=delaiTexte(SERVICES[o.service].delai);
+ const textes={
+  saved:{icon:'✅',title:'Demande enregistrée',btn:'💬 Continuer sur WhatsApp',
+   text:'Nous vous contactons sur WhatsApp pour confirmer le prix et le dépôt à verser. Votre commande est ensuite finalisée sous '+d+' à compter de la réception du dépôt.'},
+  whatsapp:{icon:'💬',title:'Dernière étape : envoyez sur WhatsApp',btn:'💬 Envoyer ma demande sur WhatsApp',
+   text:"Touchez le bouton ci-dessous : votre demande s'écrit toute seule dans WhatsApp, il ne reste qu'à l'envoyer. Nous confirmons ensuite le prix et le dépôt à verser, puis votre commande est finalisée sous "+d+' à compter de la réception du dépôt.'},
+  failed:{icon:'⚠️',title:'Envoyez votre demande par WhatsApp',btn:'💬 Envoyer sur WhatsApp',
+   text:"Votre demande n'a pas pu être enregistrée automatiquement. Envoyez-la-nous directement sur WhatsApp."}
+ };
+ const t=textes[o.mode];
+ document.getElementById('confirmIcon').textContent=t.icon;
+ document.getElementById('confirmTitle').textContent=t.title;
+ document.getElementById('confirmRef').textContent='Référence : '+o.ref;
+ document.getElementById('confirmText').textContent=t.text;
+ const wa=document.getElementById('confirmWa');
+ wa.textContent=t.btn;
+ wa.onclick=function(){contactWhatsApp(o.msg)};
+}
+async function submitForm(e){
+ e.preventDefault();
+ const f=e.target;
+ if(f.website.value)return; // champ piège anti-spam
+ const service=f.service.value;
+ if(!SERVICES[service]){alert('Choisissez un service.');return}
+ const ref=makeRef();
+ const nom=f.nom.value.trim();
+ const tel=f.tel.value.trim();
+
+ // Message complet envoyé sur WhatsApp
+ const lignes=['Bonjour TOKPO NOVA SERVICE BÉNIN, voici ma demande.','Référence : '+ref,'Service : '+service,'Nom : '+nom,'Téléphone : '+tel];
+ if(service==='Chanson personnalisée'){
+  if(f.typeChanson.value)lignes.push('Type de chanson : '+f.typeChanson.value);
+  if(f.prenoms.value.trim())lignes.push('Prénom(s) : '+f.prenoms.value.trim());
+  if(f.style.value)lignes.push('Style : '+f.style.value);
+  if(f.histoire.value.trim())lignes.push('Histoire : '+f.histoire.value.trim());
+ }
+ if(f.besoin.value.trim())lignes.push('Besoin : '+f.besoin.value.trim());
+ const msgComplet=lignes.join('\n');
+
+ let mode='whatsapp',msg=msgComplet;
+ if(CONFIG.SCRIPT_URL){
+  const data=new URLSearchParams({
+   ref:ref,nom:nom,tel:tel,service:service,
+   prenoms:f.prenoms.value.trim(),typeChanson:f.typeChanson.value,style:f.style.value,
+   histoire:f.histoire.value.trim(),besoin:f.besoin.value.trim(),website:''
+  });
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.textContent='Envoi en cours…';
+  try{
+   await fetch(CONFIG.SCRIPT_URL,{method:'POST',mode:'no-cors',body:data});
+   mode='saved';
+   msg='Bonjour TOKPO NOVA SERVICE BÉNIN, je viens d\'envoyer une demande sur le site.\nRéférence : '+ref+'\nService : '+service+'\nNom : '+nom;
+  }catch(err){mode='failed'}
+  btn.disabled=false;btn.textContent='Envoyer la demande';
+ }
+ showConfirmation({ref:ref,service:service,mode:mode,msg:msg});
+ f.reset();onServiceChange();
+}
+function contactWhatsApp(msg){
+ window.open('https://wa.me/'+CONFIG.WHATSAPP+'?text='+encodeURIComponent(msg),'_blank');
+}
+function searchSite(){
+ const q=document.getElementById('searchInput').value.trim().toLowerCase();
+ const cat=document.getElementById('cat').value;
+ let n=0;
+ document.querySelectorAll('#services .card,#annonces .listing').forEach(function(el){
+  const ok=(cat==='Tout'||el.dataset.cat===cat)&&(!q||el.textContent.toLowerCase().includes(q));
+  el.style.display=ok?'':'none';
+  if(ok)n++;
+ });
+ document.getElementById('noResult').style.display=n===0?'block':'none';
+ document.getElementById('services').scrollIntoView({behavior:'smooth'});
+}
+window.onclick=function(e){if(e.target===document.getElementById('modal'))closeModal()};
+document.getElementById('footWa').textContent=CONFIG.WHATSAPP_AFFICHE;
+document.getElementById('footMail').textContent=CONFIG.EMAIL;
+</script>
+</body>
+</html>
